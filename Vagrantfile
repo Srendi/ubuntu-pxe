@@ -1,3 +1,5 @@
+#box = "ubuntu16.04"
+#url = "https://cloud-images.ubuntu.com/xenial/current/xenial-server-cloudimg-amd64-vagrant.box"
 box = "ubuntu14.04"
 url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
 hostname = "iso-builder" 
@@ -12,7 +14,12 @@ Vagrant.configure(2) do |config|
   config.vm.hostname = hostname + '.' + domain
   #config.vm.network "private_network", ip: ip_address 
   config.vm.network "public_network", ip: ip_address 
-
+  config.ssh.insert_key = true
+  #config.ssh.private_key_path = "~/.ssh/id_rsa"
+  config.vbguest.auto_update = true
+  config.vbguest.no_remote = true
+  config.vbguest.iso_path = "/c/Program Files/Oracle/VirtualBox/VBoxGuestAdditions.iso"
+  
   config.vm.provider "virtualbox" do |vb|
     vb.customize [
       'modifyvm', :id,
