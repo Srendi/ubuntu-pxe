@@ -20,6 +20,8 @@ Vagrant.configure(2) do |config|
   config.vbguest.no_remote = false
   config.vbguest.auto_reboot = true
   config.vbguest.installer_arguments = %w{--nox11 --force}
+  config.vbguest.iso_upload_path = "/tmp/vbga"
+  config.vbguest.iso_mount_point = "/mnt/iso"
   
   config.vm.provider "virtualbox" do |vb|
     vb.customize [
