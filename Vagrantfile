@@ -18,8 +18,8 @@ Vagrant.configure(2) do |config|
   #config.ssh.private_key_path = "~/.ssh/id_rsa"
   config.vbguest.auto_update = true
   config.vbguest.no_remote = false
-  config.vbguest.iso_path = "/c/Program Files/Oracle/VirtualBox/VBoxGuestAdditions.iso"
   config.vbguest.auto_reboot = true
+  config.vbguest.installer_arguments = %w{--nox11 --force}
   
   config.vm.provider "virtualbox" do |vb|
     vb.customize [
