@@ -19,6 +19,7 @@ Vagrant.configure(2) do |config|
   config.vbguest.auto_update = true
   config.vbguest.no_remote = true
   config.vbguest.iso_path = "/c/Program Files/Oracle/VirtualBox/VBoxGuestAdditions.iso"
+  config.vbguest.auto_reboot = true
   
   config.vm.provider "virtualbox" do |vb|
     vb.customize [
